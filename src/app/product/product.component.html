@@ -1,6 +1,6 @@
-<h4 *ngIf="products.length > 0; else:noProduct">
-  {{title}}
-</h4>
+<app-category></app-category>
+
+<h4 *ngIf="products.length > 0; else:noProduct"></h4>
 <div class="mb-3">
   <input class="form-control" id="productName" [(ngModel)]="filterText">
   <div class="form-text" *ngIf="filterText">
@@ -21,7 +21,7 @@
       <p class="card-text">{{product.description}}</p>
       <p class="card-text" style="font-weight: bold;">Price : {{product.price | currency : 'USD':'symbol':'1.2-2'}}</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      <a class="btn btn-primary" (click) ="addToCart(product)">Ekle</a>
+      <a class="btn btn-primary" (click)="addToCart(product)">Ekle</a>
     </div>
   </div>
 </div>

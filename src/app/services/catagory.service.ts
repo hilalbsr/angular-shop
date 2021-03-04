@@ -1,23 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { Product } from '../product/product';
+import { Category } from '../category/category';
 import { tap, catchError } from 'rxjs/operators';
 
 @Injectable()
-export class ProductService {
 
-  path = "http://localhost:3000/products";
+export class CatagoryService {
+
+  path = "http://localhost:3000/categories";
 
   constructor(private http: HttpClient) { }
 
-  getProducts(categoryId: any): Observable<Product[]> {
-    let newPath = this.path;
-    if (categoryId) {
-      newPath += "?categoryId=" + categoryId
-    }
-alert(categoryId);
-    return this.http.get<Product[]>(newPath).pipe(
+  getCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(this.path).pipe(
       tap(data => console.log(JSON.stringify(data))),
       catchError(this.handleError)
     );
@@ -32,5 +28,4 @@ alert(categoryId);
     }
     return throwError(errorMessage);
   }
-
 }

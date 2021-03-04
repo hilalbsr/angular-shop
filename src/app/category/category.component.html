@@ -1,6 +1,5 @@
-<p>{{title}}</p>
+<nav class="nav d-flex">
+  <a class="p-2 link-secondary" routerLink="/products">Tüm Ürünler</a>
+  <a class="p-2 link-secondary" *ngFor="let item of categories" routerLink="/products/category/{{item.id}}">{{item.name}}</a>
+</nav>
 
-<ul class="list-group" >
-  <li class="list-group-item active" aria-current="true">Tüm Kategoriler</li>
-  <li class="list-group-item" *ngFor="let item of categories">{{item.name}}</li>
-</ul>
