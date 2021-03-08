@@ -14,7 +14,7 @@
 </ng-template>
 
 <div class="card-group">
-  <div *ngFor="let product of products | productFilter:filterText" class="card">
+  <div *ngFor="let product of products | productFilter:filterText" class="productbox">
     <img [src]="product.imageUrl" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{product.name}}</h5>
